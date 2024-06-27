@@ -1,34 +1,55 @@
-import { useState } from 'react'
+import React from "react";
 
-import './App.css'
+//in react a function started with capital letter is a component and starting with use is a hook
+// custom hook 
+function useTodo(){
+
+  const [todos,setTodos]=React.useState([])
+    
 
 
-function App() {
-  const [todos, setTodos] = useState([{
-    title: "go to gym",
-    Descriptions : "go to gym at 7pm",
-  },{
-    title: "go to class",
-    Descriptions : "go to class at 7pm",
-  }
-])
+  React.useEffect(()=>{
+     fetch("http://localhost:3002/todos",{
+      method:"GET"
+     }).then((response)=>(
+      response.json().then((data) => {
+        console.log(data);
+      setTodos(data)}
+      )
+     )) 
+
+     setInterval(()=>{
+      fetch("http://localhost:3002/todos",{
+        method:"GET"
+       }).then((response)=>(
+        response.json().then((data) => {
+          console.log(data);
+        setTodos(data)}
+        )
+       )) 
+     },1000) 
+  },[])
+
+  return todos
+}
+
+function App(){
  
-  return (
-<div>
-  {todos.map((todo)=>{
-   return  < Todo title = {todo.title} descriptions = {todo.Descriptions}></Todo>
-  
-  })}
-</div>
+   const todos = useTodo()
+ 
+        
+  return(
+     <div>
+      {todos.map((todo) =>{
+        return <div>
+          {todo.title} 
+          {todo.description}
+           <button>Delete</button>
+        </div>
+      })}
+     </div>
   )
 }
-  function Todo(props){
-  return <div>
-    {props.title}
-    {props.Descriptions}
-  </div>
-  }
-
 
 
 export default App
