@@ -5,8 +5,8 @@ import Card from '@mui/material/Card';
 import { Typography } from '@mui/material'; 
 
 
-function Signup() {
-  return (     
+function Signin() {
+  return ( 
   <>
   
   <div style={{
@@ -17,7 +17,7 @@ function Signup() {
     
     }}>
  <Typography variant={"h6"}>
-    Welcome to Coursesera . Sign up below
+    Welcome back . Sign In below
   
     </Typography>
   </div>
@@ -29,27 +29,13 @@ function Signup() {
     <Card variant="outlined" style={{width: 400 , padding:20}}>
       <TextField 
       fullWidth
-      id ="username" label="E-mail" variant="outlined" />
+      id="outlined-basic" label="E-mail" variant="outlined" />
         <br/><br/>
       <TextField
      fullWidth
-       id="password" label="Password" variant="outlined" />
+       id="outlined-basic" label="Password" variant="outlined" />
      <br /><br/>
-       <Button variant="contained"
-       onClick={()=>{
-      let username = document.getElementById('username').value
-     let  password = document.getElementById('password').value
-     fetch("http://localhost:3000/admin/signup",{
-      method:"POST",
-      body: JSON.stringify({
-        username,
-        password
-      })
-     })
-
-       }}
-       
-       >Sign up</Button>
+       <Button variant="contained">Sign In</Button>
      
        </Card>
        </div>
@@ -57,4 +43,4 @@ function Signup() {
   )
 }
 
-export default Signup;
+export default Signin;
