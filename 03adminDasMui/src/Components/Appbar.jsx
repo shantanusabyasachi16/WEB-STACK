@@ -1,9 +1,11 @@
 import React from 'react'
 import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
-
+import { useNavigate } from "react-router-dom";
 
 function Appbar() {
+  const navigate=useNavigate()
+
   return (
     <div style={{
       display: "flex",
@@ -22,7 +24,7 @@ function Appbar() {
       <div style={{marginRight:15}}>
          <Button variant="contained"
          onClick={()=>{
-             window.location ="/signup"
+             navigate("/signup")
          }} 
          >Sign Up</Button>
      </div>
@@ -30,7 +32,7 @@ function Appbar() {
    <div>
          <Button variant="contained" 
           onClick={()=>{
-            window.location ="/signin"
+           navigate("/signin")
         }}
          >Sign In</Button>
     </div>

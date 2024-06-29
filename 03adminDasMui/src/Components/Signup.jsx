@@ -1,4 +1,4 @@
-import React from 'react'  
+import React, { useState } from 'react'  
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
@@ -6,7 +6,10 @@ import { Typography } from '@mui/material';
 
 
 function Signup() {
-  return (     
+  const [email, setemail] = useState("")
+  const [password, setpassword] = useState("")
+  return (   
+      
   <>
   
   <div style={{
@@ -27,24 +30,42 @@ function Signup() {
   justifyContent:"center"
 }}>
     <Card variant="outlined" style={{width: 400 , padding:20}}>
-      <TextField 
-      fullWidth
-      id ="username" label="E-mail" variant="outlined" />
+      <TextField  fullWidth
+      onChange={(e)=>{
+        setemail(e.target.value)
+      }}
+
+      label="E-mail" variant="outlined" />
         <br/><br/>
-      <TextField
-     fullWidth
-       id="password" label="Password" variant="outlined" />
+
+
+      <TextField  fullWidth
+     onChange={(e)=>{
+      setpassword(e.target.value)
+    }}
+        label="Password" variant="outlined" />
+
+
      <br /><br/>
+
+
        <Button variant="contained"
        onClick={()=>{
-      let username = document.getElementById('username').value
-     let  password = document.getElementById('password').value
+    
      fetch("http://localhost:3000/admin/signup",{
       method:"POST",
       body: JSON.stringify({
-        username,
-        password
-      })
+        username:email,
+        password :password
+      }),
+      headers: {
+        "content-type" : "application/json"
+      }
+     }).then((res)=>{
+      return res.json()
+
+     }).then((data)=>{
+     localStorage.setItem("token",data.token)
      })
 
        }}
