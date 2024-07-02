@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
-import { Typography } from '@mui/material';
 
-function Course() {
+
+function Addcourse() {
     const [Title,setTitle] = useState("")
     const [Description,setDescription] = useState("")
   return (
@@ -51,7 +51,7 @@ function Course() {
       return res.json()
 
      }).then((data)=>{
-     localStorage.setItem("token",data.token)
+    alert("added courses");
      })
 
        }}
@@ -64,4 +64,4 @@ function Course() {
   )
 }
 
-export default Course
+export default Addcourse

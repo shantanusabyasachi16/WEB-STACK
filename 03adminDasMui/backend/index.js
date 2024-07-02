@@ -41,6 +41,12 @@ const authenticateJwt = (req, res, next) => {
   }
 };
 
+app.get("/admin/me", authenticateJwt, (req,res)=>{
+  console.log(req.user);
+  res.json({
+      username: req.user.username
+  })
+})
 // Admin routes
 app.post('/admin/signup', (req, res) => {
   const { username, password } = req.body;
@@ -67,6 +73,8 @@ app.post('/admin/login', (req, res) => {
     res.status(403).json({ message: 'Invalid username or password' });
   }
 });
+
+
 
 app.post('/admin/courses', authenticateJwt, (req, res) => {
   const course = req.body;
