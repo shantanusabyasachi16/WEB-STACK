@@ -22,7 +22,7 @@ function App() {
     <Appbar></Appbar>
             <Routes>
                 <Route path="/addcourse" element={<Addcourse />} />
-                <Route path="/course1/:courseId " element={<Usecourse />} />
+                <Route path="/coursed/:courseId" element={<Usecourse />} />
                 <Route path="/courses" element={<Courses />} />
                 <Route path="/signin" element={<Signin />} />
                 <Route path="/signup" element={<Signup />} />

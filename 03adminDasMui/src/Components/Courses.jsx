@@ -31,7 +31,7 @@ return (
 );
 }
 
-function Course(props) {
+export function Course(props) {
 return (
 <Card style={{
   margin:10,

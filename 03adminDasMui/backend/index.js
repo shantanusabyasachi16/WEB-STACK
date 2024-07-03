@@ -74,8 +74,6 @@ app.post('/admin/login', (req, res) => {
   }
 });
 
-
-
 app.post('/admin/courses', authenticateJwt, (req, res) => {
   const course = req.body;
   course.id = COURSES.length + 1;

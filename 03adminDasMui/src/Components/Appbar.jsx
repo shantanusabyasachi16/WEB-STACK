@@ -46,7 +46,7 @@ fetch("http://localhost:3000/admin/me",{
       <div style={{marginRight:15}}>
          <Button variant="contained"
          onClick={()=>{
-          localStorage.setItem ("token",null);
+          localStorage.setItem("token",null);
          }} 
          >logout</Button>
      </div>
