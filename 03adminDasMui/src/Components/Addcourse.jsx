@@ -7,6 +7,7 @@ import Card from '@mui/material/Card';
 function Addcourse() {
     const [Title,setTitle] = useState("")
     const [Description,setDescription] = useState("")
+    const [Image,setImage] = useState("")
   return (
     <div style={{display:"flex",justifyContent:"center"}}>
       
@@ -27,6 +28,14 @@ function Addcourse() {
     }}
         label="Description" variant="outlined" />
 
+<br /><br/>
+
+      <TextField  fullWidth
+     onChange={(e)=>{
+   setImage(e.target.value)
+    }}
+        label="Imagelink" variant="outlined" />
+
 
      <br /><br/>
 
@@ -39,7 +48,7 @@ function Addcourse() {
       body: JSON.stringify({
        title:Title,
        description:Description,
-       imageLink:"",
+       imageLink:Image,
        published:true
       }),
       headers: {
@@ -48,7 +57,7 @@ function Addcourse() {
 
       }
      }).then((res)=>{
-      return res.json()
+      return res.json() 
 
      }).then((data)=>{
     alert("added courses");
