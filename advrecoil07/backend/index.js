@@ -15,6 +15,6 @@ app.use("/user", userRouter)
 
 // Connect to MongoDB
 // DONT MISUSE THIS THANKYOU!!
-mongoose.connect('mongodb://localhost:27017/courses', { useNewUrlParser: true, useUnifiedTopology: true, dbName: "courses" });
+mongoose.connect('mongodb+srv://shantanuswain23:tZNzGDYCQywwZ9vi@cluster0.eksny7k.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true, dbName: "courses" });
 
 app.listen(3000, () => console.log('Server running on port 3000'));

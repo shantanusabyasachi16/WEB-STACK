@@ -10,7 +10,7 @@ import {Landing} from "./Components/Landing.jsx";
 import { useSetRecoilState, RecoilRoot } from 'recoil';
 import { useEffect } from 'react';
 import axios from 'axios';
-import { userState } from './Store/atoms/user';
+import { userState } from '.Store/atoms/user';
 import { BASE_URL } from './config';
 function App() {
 
