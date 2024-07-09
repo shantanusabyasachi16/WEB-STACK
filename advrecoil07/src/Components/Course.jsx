@@ -7,7 +7,7 @@ import axios from "axios";
 import { Loading } from "./Loading";
 import { BASE_URL } from "../config.js";
 import { useSetRecoilState, useRecoilValue } from "recoil";
-import { courseState } from "../store/atoms/course.js";
+import { courseState } from "../Store/atoms/course.js";
 import { isCourseLoadingState, courseTitleState, courseDetailState, courseImageState, coursePriceState } from "../store/selectors/course.js";
 
 function Course() {
